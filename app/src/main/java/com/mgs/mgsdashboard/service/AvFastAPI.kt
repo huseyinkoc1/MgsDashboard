@@ -1,6 +1,8 @@
 package com.mgs.mgsdashboard.service
 
 import com.mgs.mgsdashboard.model.avfastApi.Avfast
+import io.reactivex.Observable
+import io.reactivex.Single
 import retrofit2.Call
 import retrofit2.http.GET
 
@@ -11,6 +13,7 @@ interface AvFastAPI {
     }
 
     @GET(Avfast)
-    fun getData(): Call<Avfast>
+    fun getData(): Single<Avfast>
+
 
 }

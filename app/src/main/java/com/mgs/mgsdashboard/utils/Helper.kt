@@ -2,6 +2,7 @@ package com.mgs.mgsdashboard.utils
 
 import com.mgs.mgsdashboard.R
 import com.mgs.mgsdashboard.model.AvfastKayitModel
+import com.mgs.mgsdashboard.model.avfastApi.Avfast
 
 class Helper {
     companion object {
@@ -17,10 +18,10 @@ class Helper {
             androidVersionList.add(AvfastKayitModel(R.drawable.avfastprofile, "E*** A*** kayıt oldu.", "2 gün önce"))
             androidVersionList.add(AvfastKayitModel(R.drawable.avfastprofile, "E*** A*** kayıt oldu.", "2 gün önce"))
             androidVersionList.add(AvfastKayitModel(R.drawable.avfastprofile, "E*** A*** kayıt oldu.", "2 gün önce"))
-
-
             return androidVersionList as ArrayList
         }
+
+
 
         fun <ArrayList> getVersionsListGorev(): ArrayList {
             var androidVersionList = ArrayList<AvfastKayitModel>()

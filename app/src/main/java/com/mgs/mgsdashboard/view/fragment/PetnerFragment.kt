@@ -6,33 +6,32 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.mgs.mgsdashboard.R
 import com.mgs.mgsdashboard.adapter.*
 import com.mgs.mgsdashboard.model.petnerApi.Petner
-import com.mgs.mgsdashboard.service.PetnerAPI
+import com.mgs.mgsdashboard.viewmodel.PetnerViewModel
+import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.fragment_petner.*
 import kotlinx.android.synthetic.main.fragment_petner.circle
+import kotlinx.android.synthetic.main.fragment_petner.edtTextKisi
+import kotlinx.android.synthetic.main.fragment_petner.edtTextKullanici
 import kotlinx.android.synthetic.main.fragment_petner.view_pager2
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 
 class PetnerFragment : Fragment() {
 
-    private val BASE_URL = "https://staging-api.petner.net/"
-    private val PATH_NAME = "api/v1/"
-    private val DOMAIN_URL = BASE_URL + PATH_NAME
-    private var petnerModels: Petner? = null
+//    private val BASE_URL = "https://staging-api.petner.net/"
+//    private val PATH_NAME = "api/v1/"
+//    private val DOMAIN_URL = BASE_URL + PATH_NAME
+//    private var petnerModels: Petner? = null
     private var recyclerViewAdapterKayit: RecyclerViewAdapterPetnerKayit? = null
     private var recyclerViewAdapterGorev: RecyclerViewAdapterPetnerGorev? = null
-
-    var counter = 0
+//    private var compositeDisposable : CompositeDisposable? = null
+    private lateinit var petnerViewModel: PetnerViewModel
 
     private var titleList = mutableListOf<String>()
     private var descList = mutableListOf<String>()
@@ -60,18 +59,16 @@ class PetnerFragment : Fragment() {
         addToList("DEĞERLENDİRME", "3", R.drawable.dashp)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_petner, container, false)
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        petnerViewModel = ViewModelProvider(this).get(PetnerViewModel::class.java)
+        petnerViewModel.refreshData()
 
         postToList()
         view_pager2.adapter = ViewPagerAdapterPetner(titleList, descList, imgList)
@@ -80,83 +77,67 @@ class PetnerFragment : Fragment() {
 
 
 
-        petner_Kayit_RecyclerView.layoutManager =
-            object : LinearLayoutManager(this.requireContext()) {
-                override fun canScrollVertically(): Boolean {
-                    return false
-                }
-            }
-        petner_Gorev_RecyclerView.layoutManager =
-            object : LinearLayoutManager(this.requireContext()) {
-                override fun canScrollVertically(): Boolean {
-                    return false
-                }
-            }
+        petner_Kayit_RecyclerView.layoutManager = object : LinearLayoutManager(this.requireContext()) { override fun canScrollVertically(): Boolean { return false } }
+        petner_Gorev_RecyclerView.layoutManager = object : LinearLayoutManager(this.requireContext()) { override fun canScrollVertically(): Boolean { return false } }
 
-        loadData()
+        //compositeDisposable = CompositeDisposable()
 
-        if (counter != 0) {
-            //var adapter = RecyclerAdapterAvFastKayit(requireContext(), Helper.getVersionsListPetner())
-            //petner_Kayit_RecyclerView.adapter = adapter
-
-            //var adapterGorev = RecyclerAdapterAvFastKayit(requireContext(), Helper.getVersionsListPetnerGorev())
-            //petner_Gorev_RecyclerView.adapter = adapterGorev
-
-
-        }
+        observePetnerData()
+        //loadData()
 
 
     }
 
-
-    override fun onResume() {
-        super.onResume()
-
-        if (counter == 0) {
-            //var adapter = RecyclerAdapterAvFastKayit(requireContext(), Helper.getVersionsListPetner())
-            //petner_Kayit_RecyclerView.adapter = adapter
-
-            //var adapterGorev = RecyclerAdapterAvFastKayit(requireContext(), Helper.getVersionsListPetnerGorev())
-            //petner_Gorev_RecyclerView.adapter = adapterGorev
-
-            counter++
-        }
-    }
-
-    fun loadData() {
+    /*fun loadData() {
         val retrofit = Retrofit.Builder()
             .baseUrl(DOMAIN_URL)
             .addConverterFactory(GsonConverterFactory.create())
-            .build()
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .build().create(PetnerAPI::class.java)
 
-        val service = retrofit.create(PetnerAPI::class.java)
-        val call = service.getData()
+        compositeDisposable?.add(retrofit.getData()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(this:: handleResponse))
 
-        call.enqueue(object : Callback<Petner> {
-            override fun onResponse(call: Call<Petner>, response: Response<Petner>) {
-                if (response.isSuccessful) {
-                    response.body()?.let {
+    }
 
-                        petnerModels = it
+    private fun handleResponse(petner: Petner){
+        petnerModels = petner
 
-                        edtTextKullanici.text = petnerModels!!.users_count.toString()
-                        edtTextKisi.text = petnerModels!!.pets_count.toString()
-                        edtTextKisi2.text = petnerModels!!.adoption_pets_count.toString()
+        edtTextKullanici.text = petnerModels!!.users_count.toString()
+        edtTextKisi.text = petnerModels!!.pets_count.toString()
+        edtTextKisi2.text = petnerModels!!.adoption_pets_count.toString()
 
-                        recyclerViewAdapterKayit = RecyclerViewAdapterPetnerKayit(petnerModels!!)
-                        petner_Kayit_RecyclerView.adapter = recyclerViewAdapterKayit
+        recyclerViewAdapterKayit = RecyclerViewAdapterPetnerKayit(petnerModels!!)
+        petner_Kayit_RecyclerView.adapter = recyclerViewAdapterKayit
 
-                        recyclerViewAdapterGorev = RecyclerViewAdapterPetnerGorev(petnerModels!!)
-                        petner_Gorev_RecyclerView.adapter = recyclerViewAdapterGorev
-                    }
+        recyclerViewAdapterGorev = RecyclerViewAdapterPetnerGorev(petnerModels!!)
+        petner_Gorev_RecyclerView.adapter = recyclerViewAdapterGorev
+
+    }*/
+
+    private fun observePetnerData() {
+        petnerViewModel.getPetnerListLiveData.observe(
+            viewLifecycleOwner, androidx.lifecycle.Observer {
+                it?.let {
+
+                    edtTextKullanici.text = it!!.users_count.toString()
+                    edtTextKisi.text = it!!.pets_count.toString()
+                    edtTextKisi2.text = it!!.adoption_pets_count.toString()
+
+                    recyclerViewAdapterKayit = RecyclerViewAdapterPetnerKayit(it!!)
+                    petner_Kayit_RecyclerView.adapter = recyclerViewAdapterKayit
+
+                    recyclerViewAdapterGorev = RecyclerViewAdapterPetnerGorev(it!!)
+                    petner_Gorev_RecyclerView.adapter = recyclerViewAdapterGorev
                 }
-            }
+            })
+    }
 
-            override fun onFailure(call: Call<Petner>, t: Throwable) {
-                t.printStackTrace()
-            }
-
-        })
+    override fun onDestroy() {
+        super.onDestroy()
+        petnerViewModel.cleanDisposable()
     }
 
 }
