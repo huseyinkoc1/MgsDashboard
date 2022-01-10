@@ -122,9 +122,9 @@ class PetnerFragment : Fragment() {
             viewLifecycleOwner, androidx.lifecycle.Observer {
                 it?.let {
 
-                    edtTextKullanici.text = it!!.users_count.toString()
-                    edtTextKisi.text = it!!.pets_count.toString()
-                    edtTextKisi2.text = it!!.adoption_pets_count.toString()
+                    edtTextKullanici.text = it.users_count.toString() ?:""
+                    edtTextKisi.text = it.pets_count.toString() ?:""
+                    edtTextKisi2.text = it.adoption_pets_count.toString() ?:""
 
                     recyclerViewAdapterKayit = RecyclerViewAdapterPetnerKayit(it!!)
                     petner_Kayit_RecyclerView.adapter = recyclerViewAdapterKayit

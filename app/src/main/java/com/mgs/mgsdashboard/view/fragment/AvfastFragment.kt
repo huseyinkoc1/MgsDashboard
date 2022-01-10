@@ -86,8 +86,8 @@ class AvfastFragment : Fragment() {
             viewLifecycleOwner, androidx.lifecycle.Observer {
                 it?.let {
 
-                    edtTextKullanici.text = it!!.users_count.toString()
-                    edtTextKisi.text = it!!.online_users_count.toString()
+                    edtTextKullanici.text = it.users_count.toString() ?:""
+                    edtTextKisi.text = it?.online_users_count.toString() ?:""
 
                     recyclerViewAdapterKayit = RecyclerViewAdapterAvfastKayit(it!!)
                     avfast_Kayit_RecyclerView.adapter = recyclerViewAdapterKayit

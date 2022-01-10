@@ -15,9 +15,14 @@ class RecyclerViewAdapterAvfastGorev(private val avFastList: Avfast) :
     class RowHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         fun bind(avfastModel: Avfast, position: Int) {
-            itemView.textTitle.text = avfastModel.logs.get(position).description
-            itemView.textTime.text = avfastModel.logs.get(position).created_at
+
+            var description = avfastModel.logs.get(position).description ?:""
+            var date = avfastModel.logs.get(position).created_at ?:""
+
+            itemView.textTitle.text = description
+            itemView.textTime.text = date
             itemView.imageItem.setImageResource(R.drawable.announce)
+
             if (avfastModel.logs.count() - 1 == position) {
                 itemView.rcyViewDiveder.isVisible = false
             }

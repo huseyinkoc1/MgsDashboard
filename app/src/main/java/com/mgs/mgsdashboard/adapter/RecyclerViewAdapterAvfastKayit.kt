@@ -14,8 +14,13 @@ class RecyclerViewAdapterAvfastKayit(private val avFastList: Avfast) : RecyclerV
     class RowHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         fun bind(avfastModel: Avfast, position: Int){
-            itemView.textTitle.text = avfastModel.register_users.get(position).name+" "+avfastModel.register_users.get(position).surname
-            itemView.textTime.text = avfastModel.register_users.get(position).created_at
+
+            var name = avfastModel.register_users.get(position).name ?:""
+            var surname = avfastModel.register_users.get(position).surname ?:""
+            var date = avfastModel.register_users.get(position).created_at ?:""
+
+            itemView.textTitle.text = name+" "+surname
+            itemView.textTime.text = date
             itemView.imageItem.setImageResource(R.drawable.avfastprofile)
             if (avfastModel.register_users.count()-1 == position){
                 itemView.rcyViewDiveder.isVisible = false

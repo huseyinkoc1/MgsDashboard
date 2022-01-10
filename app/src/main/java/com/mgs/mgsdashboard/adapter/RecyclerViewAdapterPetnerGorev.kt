@@ -14,9 +14,14 @@ class RecyclerViewAdapterPetnerGorev(private val petnerList: Petner) : RecyclerV
     class RowHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         fun bind(petnerModel: Petner, position: Int){
-            itemView.textTitle.text = petnerModel.logs[position].description
-            itemView.textTime.text = petnerModel.logs[position].created_at
+
+            var description = petnerModel.logs[position].description ?:""
+            var date = petnerModel.logs[position].created_at ?:""
+
+            itemView.textTitle.text = description
+            itemView.textTime.text = date
             itemView.imageItem.setImageResource(R.drawable.petnerannounce)
+
             if (petnerModel.logs.count()-1 == position){
                 itemView.rcyViewDiveder.isVisible = false
             }

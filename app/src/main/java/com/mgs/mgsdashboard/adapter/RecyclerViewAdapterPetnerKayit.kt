@@ -14,10 +14,18 @@ class RecyclerViewAdapterPetnerKayit(private val petnerList: Petner) : RecyclerV
     class RowHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         fun bind(petnerModel: Petner, position: Int){
-            itemView.textTitle.text = petnerModel.register_users.get(position).name+" "+petnerModel.register_users.get(position).surname
-            itemView.textTime.text = petnerModel.register_users.get(position).created_at
+
+            var name = petnerModel.register_users.get(position).name ?:""
+            var surname = petnerModel.register_users.get(position).surname ?:""
+            var date = petnerModel.register_users.get(position).created_at ?:""
+
+
+            itemView.textTitle.text = name+" "+surname
+            itemView.textTime.text = date
             itemView.imageItem.setImageResource(R.drawable.petner_user)
-            if (petnerModel.register_users.count()-1 == position){
+
+
+            if (petnerModel.register_users.count()-1 == position) {
                 itemView.rcyViewDiveder.isVisible = false
             }
         }
