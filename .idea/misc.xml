@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/drawable-mdpi/back_tabs.xml" value="0.1" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/drawable/avfastdashboard.xml" value="0.2703125" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/drawable/avfastview.xml" value="0.176" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/drawable/back_select.xml" value="0.1" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/drawable/back_tabs.xml" value="0.1" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/drawable/circleindicator_petner.xml" value="0.2703125" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/drawable/circleindicator_round.xml" value="0.2703125" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/drawable/petnerdashboard.xml" value="0.2703125" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/drawable/petnerview.xml" value="0.2703125" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/drawable/recyclerview.xml" value="0.3828125" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/drawable/tab.xml" value="0.1" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/drawable/tab_divider.xml" value="0.1" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/drawable/tab_item_selector.xml" value="0.1" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/activity_main.xml" value="0.176" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/activity_splash.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/avfast_dashboard.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/contain_main.xml" value="0.4" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/fragment_avfast.xml" value="0.1" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/fragment_petner.xml" value="0.264" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/item_page.xml" value="0.25" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/petner_dashboard.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/recycler_view_item.xml" value="0.6" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/slider_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/tab_item.xml" value="0.4" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/tab_layout.xml" value="0.1" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/menu/bottom_menu.xml" value="0.4" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.16302083333333334" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.16302083333333334" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

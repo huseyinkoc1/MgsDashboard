@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/avFastBackgroundColor"
+    tools:context=".view.fragment.AvfastFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textViewKullaniciSayisi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="84dp"
+                android:layout_marginTop="42dp"
+                android:layout_marginEnd="84dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:gravity="center"
+                android:text="TOPLAM KULLANICI SAYISI"
+                android:textColor="@color/avFastPrimaryColor"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/edtTextKullanici"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="114dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="114dp"
+                android:background="@drawable/avfastview"
+                android:fontFamily="@font/montserrat_semibold"
+                android:gravity="center"
+                android:text="100"
+                android:textColor="@color/avFastPrimaryText"
+                android:textSize="40sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewKullaniciSayisi" />
+
+            <TextView
+                android:id="@+id/textViewKisiSayisi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="120dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="120dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:gravity="center"
+                android:text="ONLINE KİŞİ SAYISI"
+                android:textColor="@color/avFastPrimaryColor"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edtTextKullanici" />
+
+            <TextView
+                android:id="@+id/edtTextKisi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="114dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="114dp"
+                android:background="@drawable/avfastview"
+                android:fontFamily="@font/montserrat_semibold"
+                android:gravity="center"
+                android:text="7"
+                android:textColor="@color/avFastPrimaryText"
+                android:textSize="40sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewKisiSayisi" />
+
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/view_pager2"
+                android:layout_width="374dp"
+                android:layout_height="349dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="36dp"
+                android:layout_marginBottom="25dp"
+                android:background="@drawable/avfastdashboard"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@+id/circle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edtTextKisi"></androidx.viewpager2.widget.ViewPager2>
+
+            <me.relex.circleindicator.CircleIndicator3
+                android:id="@+id/circle"
+                android:layout_width="100dp"
+                android:layout_height="15dp"
+                android:layout_marginStart="165dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="165dp"
+                app:ci_drawable="@drawable/circleindicator_round"
+                app:ci_height="7dp"
+                app:ci_width="7dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view_pager2"></me.relex.circleindicator.CircleIndicator3>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/avfast_Kayit_RecyclerView"
+                android:layout_width="374dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="58dp"
+                android:layout_marginEnd="36dp"
+                android:background="@drawable/recyclerview"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/circle">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/avfast_Gorev_RecyclerView"
+                android:layout_width="374dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="58dp"
+                android:layout_marginEnd="36dp"
+                android:layout_marginBottom="75dp"
+                android:background="@drawable/recyclerview"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/avfast_Kayit_RecyclerView">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Kayıt Olanlar (10)"
+                android:textColor="@color/petnerSecondaryText"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/avfast_Kayit_RecyclerView"
+                app:layout_constraintStart_toStartOf="@+id/avfast_Kayit_RecyclerView" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Son Olaylar (10)"
+                android:textColor="@color/petnerSecondaryText"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/avfast_Gorev_RecyclerView"
+                app:layout_constraintStart_toStartOf="@+id/avfast_Gorev_RecyclerView" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
