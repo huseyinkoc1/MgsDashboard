@@ -78,8 +78,6 @@ class AvfastFragment : Fragment() {
 
         observeAvfastData()
 
-
-
     }
 
 
