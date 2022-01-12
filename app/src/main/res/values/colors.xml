@@ -28,6 +28,7 @@
     <color name="petnerPrimaryText">#2D2D2D</color>
     <color name="petnerSecondaryText">#FFFFFF</color>
     <color name="petnerTextColor">#404041</color>
+    <color name="petnerChartAxisLeft">#404042</color>
     <color name="petnerPrimaryColor">#691296</color>
     <color name="petnerBorderColor">#C9C9C9</color>
 </resources>

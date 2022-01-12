@@ -8,6 +8,17 @@
     tools:context=".view.fragment.PetnerFragment">
 
 
+    <ProgressBar
+        android:id="@+id/progressBar3"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="29dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="10dp"
+        android:indeterminateTint="@color/petnerPrimaryText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -29,7 +40,7 @@
                 android:layout_marginEnd="80dp"
                 android:fontFamily="@font/montserrat_medium"
                 android:gravity="center"
-                android:text="TOPLAM KULLANICI SAYISI"
+                android:text="@string/totalUsersPetner"
                 android:textColor="@color/petnerPrimaryText"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +73,7 @@
                 android:layout_marginEnd="108dp"
                 android:fontFamily="@font/montserrat_medium"
                 android:gravity="center"
-                android:text="EVCİL HAYVAN SAYISI"
+                android:text="@string/numberPets"
                 android:textColor="@color/petnerPrimaryText"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -112,7 +123,7 @@
                 android:layout_marginEnd="70dp"
                 android:fontFamily="@font/montserrat_medium"
                 android:gravity="center"
-                android:text="SAHİPLENDİRME İLAN SAYISI"
+                android:text="@string/numberOwnership"
                 android:textColor="@color/petnerPrimaryText"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -123,7 +134,7 @@
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/view_pager2"
                 android:layout_width="373dp"
-                android:layout_height="253dp"
+                android:layout_height="349dp"
                 android:layout_marginStart="36dp"
                 android:layout_marginTop="36dp"
                 android:layout_marginEnd="36dp"
@@ -180,24 +191,24 @@
             </androidx.recyclerview.widget.RecyclerView>
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/textViewKayit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/montserrat_bold"
-                android:text="Kayıt Olanlar (10)"
+                android:text="@string/add"
                 android:textColor="@color/petnerPrimaryColor"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@+id/petner_Kayit_RecyclerView"
                 app:layout_constraintStart_toStartOf="@+id/petner_Kayit_RecyclerView" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/textViewOlay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/montserrat_bold"
-                android:text="Son Olaylar (10)"
+                android:text="@string/logs"
                 android:textColor="@color/petnerPrimaryColor"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@+id/petner_Gorev_RecyclerView"

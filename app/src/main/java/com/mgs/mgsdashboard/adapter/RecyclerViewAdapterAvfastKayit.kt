@@ -15,9 +15,20 @@ class RecyclerViewAdapterAvfastKayit(private val avFastList: Avfast) : RecyclerV
 
         fun bind(avfastModel: Avfast, position: Int){
 
-            var name = avfastModel.register_users.get(position).name ?:""
-            var surname = avfastModel.register_users.get(position).surname ?:""
+            var name = ""
+            var surname = ""
             var date = avfastModel.register_users.get(position).created_at ?:""
+
+            if (avfastModel.register_users.get(position).name != null){
+                name = "${avfastModel.register_users.get(position).name[0].toUpperCase() + avfastModel.register_users.get(position).name.substring(1)}" ?:""
+            }
+
+            if (avfastModel.register_users.get(position).surname != null){
+                surname = "${avfastModel.register_users.get(position).surname[0].toUpperCase() + avfastModel.register_users.get(position).surname.substring(1)}" ?:""
+            }
+
+
+
 
             itemView.textTitle.text = name+" "+surname
             itemView.textTime.text = date

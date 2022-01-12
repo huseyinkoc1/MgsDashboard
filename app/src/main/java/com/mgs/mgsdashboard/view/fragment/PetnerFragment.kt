@@ -12,9 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.mgs.mgsdashboard.R
 import com.mgs.mgsdashboard.adapter.*
-import com.mgs.mgsdashboard.model.petnerApi.Petner
 import com.mgs.mgsdashboard.viewmodel.PetnerViewModel
-import io.reactivex.disposables.CompositeDisposable
+import kotlinx.android.synthetic.main.fragment_avfast.*
 import kotlinx.android.synthetic.main.fragment_petner.*
 import kotlinx.android.synthetic.main.fragment_petner.circle
 import kotlinx.android.synthetic.main.fragment_petner.edtTextKisi
@@ -28,14 +27,13 @@ class PetnerFragment : Fragment() {
 //    private val PATH_NAME = "api/v1/"
 //    private val DOMAIN_URL = BASE_URL + PATH_NAME
 //    private var petnerModels: Petner? = null
-    private var recyclerViewAdapterKayit: RecyclerViewAdapterPetnerKayit? = null
-    private var recyclerViewAdapterGorev: RecyclerViewAdapterPetnerGorev? = null
+    //private var recyclerViewAdapterKayit: RecyclerViewAdapterPetnerKayit? = null
+    //private var recyclerViewAdapterGorev: RecyclerViewAdapterPetnerGorev? = null
 //    private var compositeDisposable : CompositeDisposable? = null
     private lateinit var petnerViewModel: PetnerViewModel
 
     private var titleList = mutableListOf<String>()
-    private var descList = mutableListOf<String>()
-    private var imgList = mutableListOf<Int>()
+    private var descList = mutableListOf<Int>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,21 +42,10 @@ class PetnerFragment : Fragment() {
     }
 
 
-    private fun addToList(title: String, description: String, image: Int) {
+    private fun addToList(title: String, description: Int) {
         titleList.add(title)
         descList.add(description)
-        imgList.add(image)
     }
-
-    private fun postToList() {
-        addToList("BU AY KAYITLI KULLANICI", "10", R.drawable.dashp)
-        addToList("GÜNLÜK GİRİŞ", "10", R.drawable.dashp)
-        addToList("YENİ TASK", "9", R.drawable.dashp)
-        addToList("BAŞVURMA", "7", R.drawable.dashp)
-        addToList("TAMAMLANAN", "3", R.drawable.dashp)
-        addToList("DEĞERLENDİRME", "3", R.drawable.dashp)
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_petner, container, false)
     }
@@ -70,10 +57,7 @@ class PetnerFragment : Fragment() {
         petnerViewModel = ViewModelProvider(this).get(PetnerViewModel::class.java)
         petnerViewModel.refreshData()
 
-        postToList()
-        view_pager2.adapter = ViewPagerAdapterPetner(titleList, descList, imgList)
-        view_pager2.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-        circle.setViewPager(view_pager2)
+
 
 
 
@@ -83,6 +67,8 @@ class PetnerFragment : Fragment() {
         //compositeDisposable = CompositeDisposable()
 
         observePetnerData()
+
+        progressBar3.visibility = View.VISIBLE
         //loadData()
 
 
@@ -122,15 +108,30 @@ class PetnerFragment : Fragment() {
             viewLifecycleOwner, androidx.lifecycle.Observer {
                 it?.let {
 
+                    addToList("BU AY KAYITLI KULLANICI",it.users_count)
+                    addToList("GÜNLÜK GİRİŞ",it.users_logged_ln_today_count)
+                    addToList("YENİ POST", it.posts_in_last_month_count)
+                    addToList("CHAT SAYISI",  it.conversations_in_last_week_count)
+                    addToList("POST YORUM", it.comments_in_last_month_count)
+
+
+
+                    view_pager2.adapter = ViewPagerAdapterPetner(titleList, descList,it!!)
+                    view_pager2.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+                    circle.setViewPager(view_pager2)
+
+                    progressBar3.visibility = View.GONE
                     edtTextKullanici.text = it.users_count.toString() ?:""
                     edtTextKisi.text = it.pets_count.toString() ?:""
                     edtTextKisi2.text = it.adoption_pets_count.toString() ?:""
+                    textViewKayit.text = "Kayıt Olanlar (${it.register_users.size})" ?:""
+                    textViewOlay.text = "Son Olaylar (${it.logs.size})" ?:""
 
-                    recyclerViewAdapterKayit = RecyclerViewAdapterPetnerKayit(it!!)
-                    petner_Kayit_RecyclerView.adapter = recyclerViewAdapterKayit
+                    //recyclerViewAdapterKayit = RecyclerViewAdapterPetnerKayit(it!!)
+                    petner_Kayit_RecyclerView.adapter = RecyclerViewAdapterPetnerKayit(it!!)
 
-                    recyclerViewAdapterGorev = RecyclerViewAdapterPetnerGorev(it!!)
-                    petner_Gorev_RecyclerView.adapter = recyclerViewAdapterGorev
+                    //recyclerViewAdapterGorev = RecyclerViewAdapterPetnerGorev(it!!)
+                    petner_Gorev_RecyclerView.adapter = RecyclerViewAdapterPetnerGorev(it!!)
                 }
             })
     }

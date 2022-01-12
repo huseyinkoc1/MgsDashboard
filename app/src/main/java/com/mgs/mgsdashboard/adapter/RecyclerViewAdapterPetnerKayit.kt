@@ -15,9 +15,17 @@ class RecyclerViewAdapterPetnerKayit(private val petnerList: Petner) : RecyclerV
 
         fun bind(petnerModel: Petner, position: Int){
 
-            var name = petnerModel.register_users.get(position).name ?:""
-            var surname = petnerModel.register_users.get(position).surname ?:""
-            var date = petnerModel.register_users.get(position).created_at ?:""
+            var name = ""
+            var surname = ""
+            val date = petnerModel.register_users.get(position).created_at ?:""
+
+            if (petnerModel.register_users.get(position).name != null){
+                name = "${petnerModel.register_users.get(position).name[0].toUpperCase()+petnerModel.register_users.get(position).name.substring(1)} "?:""
+            }
+
+            if (petnerModel.register_users.get(position).surname != null){
+                surname = "${petnerModel.register_users.get(position).surname[0].toUpperCase() +petnerModel.register_users.get(position).surname.substring(1)}"
+            }
 
 
             itemView.textTitle.text = name+" "+surname

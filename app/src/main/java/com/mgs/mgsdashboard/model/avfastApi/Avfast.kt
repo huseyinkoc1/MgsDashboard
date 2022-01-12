@@ -9,12 +9,12 @@ data class Avfast(
     val online_users_count: Int,
     val register_users: List<RegisterUser>,
     val users_count: Int,
-    val weekly_applied_tasks_chart: List<WeeklyAppliedTasksChart>,
+    val weekly_applied_tasks_chart: List<Any>,
     val weekly_applied_tasks_count: Int,
-    val weekly_done_tasks_chart: List<WeeklyDoneTasksChart>,
+    val weekly_done_tasks_chart: List<Any>,
     val weekly_done_tasks_count: Int,
-    val weekly_evaluated_tasks_chart: List<WeeklyEvaluatedTasksChart>,
+    val weekly_evaluated_tasks_chart: List<Any>,
     val weekly_evaluated_tasks_count: Int,
-    val weekly_tasks_chart: List<WeeklyTasksChart>,
+    val weekly_tasks_chart: List<Any>,
     val weekly_tasks_count: Int
 )

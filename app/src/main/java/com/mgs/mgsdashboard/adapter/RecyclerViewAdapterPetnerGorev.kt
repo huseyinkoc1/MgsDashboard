@@ -15,8 +15,8 @@ class RecyclerViewAdapterPetnerGorev(private val petnerList: Petner) : RecyclerV
 
         fun bind(petnerModel: Petner, position: Int){
 
-            var description = petnerModel.logs[position].description ?:""
-            var date = petnerModel.logs[position].created_at ?:""
+            val description = petnerModel.logs[position].description ?:""
+            val date = petnerModel.logs[position].created_at ?:""
 
             itemView.textTitle.text = description
             itemView.textTime.text = date

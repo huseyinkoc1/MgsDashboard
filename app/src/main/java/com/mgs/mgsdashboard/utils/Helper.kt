@@ -22,7 +22,6 @@ class Helper {
         }
 
 
-
         fun <ArrayList> getVersionsListGorev(): ArrayList {
             var androidVersionList = ArrayList<AvfastKayitModel>()
             androidVersionList.add(AvfastKayitModel(R.drawable.announce, "Bursa ilinde yeni bir görev.", "2 gün önce"))

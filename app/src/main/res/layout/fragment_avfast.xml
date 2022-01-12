@@ -29,7 +29,7 @@
                 android:layout_marginEnd="84dp"
                 android:fontFamily="@font/montserrat_medium"
                 android:gravity="center"
-                android:text="TOPLAM KULLANICI SAYISI"
+                android:text="@string/totalUsers"
                 android:textColor="@color/avFastPrimaryColor"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +62,7 @@
                 android:layout_marginEnd="120dp"
                 android:fontFamily="@font/montserrat_medium"
                 android:gravity="center"
-                android:text="ONLINE KİŞİ SAYISI"
+                android:text="@string/onlineUsers"
                 android:textColor="@color/avFastPrimaryColor"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -100,7 +100,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/circle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edtTextKisi"></androidx.viewpager2.widget.ViewPager2>
+                app:layout_constraintTop_toBottomOf="@+id/edtTextKisi"/>
 
             <me.relex.circleindicator.CircleIndicator3
                 android:id="@+id/circle"
@@ -114,7 +114,7 @@
                 app:ci_width="7dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/view_pager2"></me.relex.circleindicator.CircleIndicator3>
+                app:layout_constraintTop_toBottomOf="@id/view_pager2"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/avfast_Kayit_RecyclerView"
@@ -147,28 +147,39 @@
             </androidx.recyclerview.widget.RecyclerView>
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/textViewKayitSayi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/montserrat_bold"
-                android:text="Kayıt Olanlar (10)"
+                android:text="@string/add"
                 android:textColor="@color/petnerSecondaryText"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@+id/avfast_Kayit_RecyclerView"
                 app:layout_constraintStart_toStartOf="@+id/avfast_Kayit_RecyclerView" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/textViewOlaySayisi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/montserrat_bold"
-                android:text="Son Olaylar (10)"
+                android:text="@string/logs"
                 android:textColor="@color/petnerSecondaryText"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@+id/avfast_Gorev_RecyclerView"
                 app:layout_constraintStart_toStartOf="@+id/avfast_Gorev_RecyclerView" />
+
+            <ProgressBar
+                android:id="@+id/progressBar2"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="29dp"
+                android:layout_height="28dp"
+                android:layout_marginTop="10dp"
+                android:indeterminateTint="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,7 +9,7 @@
         android:id="@+id/textViewN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="10dp"
         android:fontFamily="@font/montserrat_medium"
         android:lineSpacingExtra="19sp"
         android:text="TextView"
@@ -24,7 +24,7 @@
         android:id="@+id/textViewM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="10dp"
         android:fontFamily="@font/montserrat_bold"
         android:lineSpacingExtra="49sp"
         android:text="TextView"
@@ -36,11 +36,13 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageViewN"
-        android:layout_width="224dp"
-        android:layout_height="151dp"
-        android:layout_marginBottom="5dp"
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/barChartPetner"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toTopOf="@+id/textViewN"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

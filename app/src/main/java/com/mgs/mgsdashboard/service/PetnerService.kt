@@ -1,7 +1,6 @@
 package com.mgs.mgsdashboard.service
 
 import com.google.gson.GsonBuilder
-import com.mgs.mgsdashboard.model.avfastApi.Avfast
 import com.mgs.mgsdashboard.model.petnerApi.Petner
 import io.reactivex.Single
 import retrofit2.Retrofit

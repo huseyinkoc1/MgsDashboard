@@ -3,6 +3,8 @@ package com.mgs.mgsdashboard.view.fragment
 
 
 
+import android.graphics.Color
+import android.graphics.Typeface
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,13 +13,20 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
+import com.github.mikephil.charting.components.Legend
+import com.github.mikephil.charting.components.XAxis
+import com.github.mikephil.charting.data.BarData
+import com.github.mikephil.charting.data.BarDataSet
+import com.github.mikephil.charting.data.BarEntry
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.mgs.mgsdashboard.R
 import com.mgs.mgsdashboard.adapter.RecyclerViewAdapterAvfastGorev
 import com.mgs.mgsdashboard.adapter.RecyclerViewAdapterAvfastKayit
 import com.mgs.mgsdashboard.adapter.ViewPagerAdapterAvfast
 import com.mgs.mgsdashboard.model.avfastApi.Avfast
+import com.mgs.mgsdashboard.model.avfastApi.MonthlyTotalUsersChart
 import com.mgs.mgsdashboard.viewmodel.AvfastViewModel
-import io.reactivex.disposables.CompositeDisposable
+import kotlinx.android.synthetic.main.avfast_dashboard.*
 import kotlinx.android.synthetic.main.fragment_avfast.*
 
 
@@ -25,12 +34,10 @@ import kotlinx.android.synthetic.main.fragment_avfast.*
 class AvfastFragment : Fragment() {
 
 
-    private  var recyclerViewAdapterKayit : RecyclerViewAdapterAvfastKayit? = null
-    private  var recyclerViewAdapterGorev : RecyclerViewAdapterAvfastGorev? = null
     private lateinit var avfastViewModel: AvfastViewModel
     private var titleList = mutableListOf<String>()
-    private var descList = mutableListOf<String>()
-    private var imgList = mutableListOf<Int>()
+    private var descList = mutableListOf<Int>()
+    private var avfastModels: Avfast? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,20 +47,12 @@ class AvfastFragment : Fragment() {
         }
     }
 
-    private fun addToList(title: String,description: String, image: Int){
+    private fun addToList(title: String ,description: Int){
         titleList.add(title)
         descList.add(description)
-        imgList.add(image)
     }
 
-    private  fun postToList(){
-        addToList("BU AY KAYITLI KULLANICI","10",R.drawable.dash)
-        addToList("GÜNLÜK GİRİŞ","10",R.drawable.dash)
-        addToList("YENİ TASK","9",R.drawable.dash)
-        addToList("BAŞVURMA","7",R.drawable.dash)
-        addToList("TAMAMLANAN","3",R.drawable.dash)
-        addToList("DEĞERLENDİRME","3",R.drawable.dash)
-    }
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_avfast, container, false)
@@ -67,19 +66,13 @@ class AvfastFragment : Fragment() {
         avfastViewModel = ViewModelProvider(this).get(AvfastViewModel::class.java)
         avfastViewModel.refreshData()
 
-        postToList()
-        view_pager2.adapter = ViewPagerAdapterAvfast(titleList,descList,imgList)
-        view_pager2.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-
-        circle.setViewPager(view_pager2)
 
         avfast_Kayit_RecyclerView.layoutManager = object  : LinearLayoutManager(this.requireContext()){ override fun canScrollVertically(): Boolean { return false } }
         avfast_Gorev_RecyclerView.layoutManager = object  : LinearLayoutManager(this.requireContext()){ override fun canScrollVertically(): Boolean { return false } }
 
         observeAvfastData()
 
-
-
+        progressBar2.visibility = View.VISIBLE
 
     }
 
@@ -88,15 +81,26 @@ class AvfastFragment : Fragment() {
         avfastViewModel.getAvfastListLiveData.observe(
             viewLifecycleOwner, androidx.lifecycle.Observer {
                 it?.let {
+                    avfastModels = it
 
+                    addToList("BU AY KAYITLI KULLANICI",it.monthly_total_users_count)
+                    addToList("GÜNLÜK GİRİŞ",it.daily_logged_in_users_count)
+                    addToList("YENİ TASK",it.weekly_tasks_count)
+                    addToList("BAŞVURMA",it.weekly_applied_tasks_count)
+                    addToList("TAMAMLANAN",it.weekly_done_tasks_count)
+                    addToList("DEĞERLENDİRME",it.weekly_evaluated_tasks_count)
+
+                    view_pager2.adapter = ViewPagerAdapterAvfast(titleList,descList, it!!)
+                    view_pager2.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+                    circle.setViewPager(view_pager2)
+
+                    progressBar2.visibility = View.GONE
                     edtTextKullanici.text = it.users_count.toString() ?:""
                     edtTextKisi.text = it?.online_users_count.toString() ?:""
-
-                    recyclerViewAdapterKayit = RecyclerViewAdapterAvfastKayit(it!!)
-                    avfast_Kayit_RecyclerView.adapter = recyclerViewAdapterKayit
-
-                    recyclerViewAdapterGorev = RecyclerViewAdapterAvfastGorev(it!!)
-                    avfast_Gorev_RecyclerView.adapter = recyclerViewAdapterGorev
+                    textViewKayitSayi.text = "Kayıt Olanlar (${it.register_users.size})" ?:""
+                    textViewOlaySayisi.text = "Son Olaylar (${it.logs.size})" ?:""
+                    avfast_Kayit_RecyclerView.adapter = RecyclerViewAdapterAvfastKayit(it!!)
+                    avfast_Gorev_RecyclerView.adapter = RecyclerViewAdapterAvfastGorev(it!!)
                 }
             })
     }
