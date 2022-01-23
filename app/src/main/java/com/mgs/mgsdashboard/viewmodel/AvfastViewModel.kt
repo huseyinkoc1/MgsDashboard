@@ -2,7 +2,7 @@ package com.mgs.mgsdashboard.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.mgs.mgsdashboard.model.avfastApi.Avfast
+import com.mgs.mgsdashboard.model.avfast.Avfast
 import com.mgs.mgsdashboard.service.AvfastService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable

@@ -2,7 +2,7 @@ package com.mgs.mgsdashboard.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.mgs.mgsdashboard.model.petnerApi.Petner
+import com.mgs.mgsdashboard.model.petner.Petner
 import com.mgs.mgsdashboard.service.PetnerService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable

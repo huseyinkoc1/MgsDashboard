@@ -9,27 +9,46 @@
         <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/drawable/back_select.xml" value="0.1" />
         <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/drawable/back_tabs.xml" value="0.1" />
         <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/drawable/circleindicator_petner.xml" value="0.2703125" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/drawable/circleindicator_redminer.xml" value="0.2703125" />
         <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/drawable/circleindicator_round.xml" value="0.2703125" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/drawable/imageround.xml" value="0.2703125" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/drawable/log.xml" value="0.2703125" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/drawable/login_button_shape.xml" value="0.2703125" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/drawable/login_edittext_shape.xml" value="0.2703125" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/drawable/main_page.xml" value="0.2703125" />
         <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/drawable/petnerdashboard.xml" value="0.2703125" />
         <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/drawable/petnerview.xml" value="0.2703125" />
         <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/drawable/recyclerview.xml" value="0.3828125" />
         <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/drawable/tab.xml" value="0.1" />
         <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/drawable/tab_divider.xml" value="0.1" />
         <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/drawable/tab_item_selector.xml" value="0.1" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/activity_main.xml" value="0.176" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/activity_main_page.xml" value="0.264" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/activity_mobile_app.xml" value="0.4" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/activity_red_miner.xml" value="0.264" />
         <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/activity_splash.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/avfast_dashboard.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/contain_main.xml" value="0.4" />
-        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/fragment_avfast.xml" value="0.3350559862187769" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/fragment_avfast.xml" value="0.25" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/fragment_completed_team.xml" value="0.1" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/fragment_opened_task.xml" value="0.17253839205058719" />
         <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/fragment_petner.xml" value="0.4" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/fragment_story_point.xml" value="0.4" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/fragment_task_completed.xml" value="0.2" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/fragment_task_completion.xml" value="0.6" />
         <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/item_page.xml" value="0.25" />
         <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/petner_dashboard.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/recycler_view_item.xml" value="0.6" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/recycler_view_item.xml" value="0.72" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/recyler_redmine_first.xml" value="0.47706422018348627" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/recyler_redmine_second.xml" value="0.72" />
         <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/slider_item.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/tab_item.xml" value="0.4" />
         <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/layout/tab_layout.xml" value="0.1" />
         <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/menu/bottom_menu.xml" value="0.4" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/menu/main_page_menu.xml" value="0.1814814814814815" />
         <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.16302083333333334" />
+        <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/mipmap-anydpi-v26/ic_launcherMgs.xml" value="0.2037037037037037" />
         <entry key="..\:/Users/pelin/AndroidStudioProjects/MgsDashboard/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.16302083333333334" />
       </map>
     </option>
@@ -39,5 +58,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.2" />
+      </ProjectState>
+    </option>
   </component>
 </project>

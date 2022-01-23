@@ -45,7 +45,6 @@
         android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toTopOf="@+id/textViewN"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/dashp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

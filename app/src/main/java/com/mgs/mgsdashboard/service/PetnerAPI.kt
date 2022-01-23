@@ -1,6 +1,6 @@
 package com.mgs.mgsdashboard.service
 
-import com.mgs.mgsdashboard.model.petnerApi.Petner
+import com.mgs.mgsdashboard.model.petner.Petner
 import io.reactivex.Single
 import retrofit2.http.GET
 

@@ -3,8 +3,8 @@ package com.mgs.mgsdashboard.view.splashscreen
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.mgs.mgsdashboard.view.MainActivity
 import com.mgs.mgsdashboard.R
+import com.mgs.mgsdashboard.view.LoginActivity
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,8 +16,7 @@ class SplashActivity : AppCompatActivity() {
                 try {
 
                     Thread.sleep(1000)
-
-                    val intent = Intent(baseContext, MainActivity::class.java)
+                    val intent = Intent(baseContext, LoginActivity::class.java)
                     finish()
                     startActivity(intent)
                 }catch (e : Exception){

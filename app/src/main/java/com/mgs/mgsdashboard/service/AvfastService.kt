@@ -1,7 +1,7 @@
 package com.mgs.mgsdashboard.service
 
 import com.google.gson.GsonBuilder
-import com.mgs.mgsdashboard.model.avfastApi.Avfast
+import com.mgs.mgsdashboard.model.avfast.Avfast
 import io.reactivex.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory

@@ -1,6 +1,6 @@
 package com.mgs.mgsdashboard.service
 
-import com.mgs.mgsdashboard.model.avfastApi.Avfast
+import com.mgs.mgsdashboard.model.avfast.Avfast
 import io.reactivex.Single
 import retrofit2.http.GET
 
