@@ -37,7 +37,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/edtTextKullanici"
+                android:id="@+id/edtTextUser"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="114dp"
@@ -67,10 +67,10 @@
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edtTextKullanici" />
+                app:layout_constraintTop_toBottomOf="@+id/edtTextUser" />
 
             <TextView
-                android:id="@+id/edtTextKisi"
+                android:id="@+id/edtTextOnlineUser"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="114dp"
@@ -100,7 +100,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/circle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edtTextKisi"/>
+                app:layout_constraintTop_toBottomOf="@+id/edtTextOnlineUser"/>
 
             <me.relex.circleindicator.CircleIndicator3
                 android:id="@+id/circle"
@@ -117,7 +117,7 @@
                 app:layout_constraintTop_toBottomOf="@id/view_chart"/>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/avfast_Kayit_RecyclerView"
+                android:id="@+id/avfast_Register_RecyclerView"
                 android:layout_width="374dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="36dp"
@@ -131,7 +131,7 @@
             </androidx.recyclerview.widget.RecyclerView>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/avfast_Gorev_RecyclerView"
+                android:id="@+id/avfast_Logs_RecyclerView"
                 android:layout_width="374dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="36dp"
@@ -142,12 +142,12 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/avfast_Kayit_RecyclerView">
+                app:layout_constraintTop_toBottomOf="@+id/avfast_Register_RecyclerView">
 
             </androidx.recyclerview.widget.RecyclerView>
 
             <TextView
-                android:id="@+id/textViewKayitSayi"
+                android:id="@+id/textViewRegister"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -155,11 +155,11 @@
                 android:text="@string/add"
                 android:textColor="@color/petnerSecondaryText"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@+id/avfast_Kayit_RecyclerView"
-                app:layout_constraintStart_toStartOf="@+id/avfast_Kayit_RecyclerView" />
+                app:layout_constraintBottom_toTopOf="@+id/avfast_Register_RecyclerView"
+                app:layout_constraintStart_toStartOf="@+id/avfast_Register_RecyclerView" />
 
             <TextView
-                android:id="@+id/textViewOlaySayisi"
+                android:id="@+id/textViewLogs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -167,8 +167,8 @@
                 android:text="@string/logs"
                 android:textColor="@color/petnerSecondaryText"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@+id/avfast_Gorev_RecyclerView"
-                app:layout_constraintStart_toStartOf="@+id/avfast_Gorev_RecyclerView" />
+                app:layout_constraintBottom_toTopOf="@+id/avfast_Logs_RecyclerView"
+                app:layout_constraintStart_toStartOf="@+id/avfast_Logs_RecyclerView" />
 
             <ProgressBar
                 android:id="@+id/progressBar2"

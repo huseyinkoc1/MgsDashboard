@@ -48,7 +48,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/edtTextKullanici"
+                android:id="@+id/edtTextUsersCount"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="114dp"
@@ -78,10 +78,10 @@
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edtTextKullanici" />
+                app:layout_constraintTop_toBottomOf="@+id/edtTextUsersCount" />
 
             <TextView
-                android:id="@+id/edtTextKisi"
+                android:id="@+id/edtTextPetsCount"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="114dp"
@@ -98,7 +98,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textViewKisiSayisi" />
 
             <TextView
-                android:id="@+id/edtTextKisi2"
+                android:id="@+id/edtTextAdoptionPetsCount"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="114dp"
@@ -128,7 +128,7 @@
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/edtTextKisi" />
+                app:layout_constraintTop_toBottomOf="@id/edtTextPetsCount" />
 
 
             <androidx.viewpager2.widget.ViewPager2
@@ -144,7 +144,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/circle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edtTextKisi2"></androidx.viewpager2.widget.ViewPager2>
+                app:layout_constraintTop_toBottomOf="@+id/edtTextAdoptionPetsCount"/>
 
             <me.relex.circleindicator.CircleIndicator3
                 android:id="@+id/circle"
@@ -158,10 +158,10 @@
                 app:ci_width="7dp"
                 app:layout_constraintTop_toBottomOf="@id/view_chart"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"></me.relex.circleindicator.CircleIndicator3>
+                app:layout_constraintStart_toStartOf="parent"/>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/petner_Kayit_RecyclerView"
+                android:id="@+id/petner_Register_RecyclerView"
                 android:layout_width="374dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="36dp"
@@ -175,7 +175,7 @@
             </androidx.recyclerview.widget.RecyclerView>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/petner_Gorev_RecyclerView"
+                android:id="@+id/petner_Logs_RecyclerView"
                 android:layout_width="374dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="36dp"
@@ -186,12 +186,12 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/petner_Kayit_RecyclerView">
+                app:layout_constraintTop_toBottomOf="@+id/petner_Register_RecyclerView">
 
             </androidx.recyclerview.widget.RecyclerView>
 
             <TextView
-                android:id="@+id/textViewKayit"
+                android:id="@+id/textViewRegister"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -199,11 +199,11 @@
                 android:text="@string/add"
                 android:textColor="@color/petnerPrimaryColor"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@+id/petner_Kayit_RecyclerView"
-                app:layout_constraintStart_toStartOf="@+id/petner_Kayit_RecyclerView" />
+                app:layout_constraintBottom_toTopOf="@+id/petner_Register_RecyclerView"
+                app:layout_constraintStart_toStartOf="@+id/petner_Register_RecyclerView" />
 
             <TextView
-                android:id="@+id/textViewOlay"
+                android:id="@+id/textViewLogs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -211,8 +211,8 @@
                 android:text="@string/logs"
                 android:textColor="@color/petnerPrimaryColor"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@+id/petner_Gorev_RecyclerView"
-                app:layout_constraintStart_toStartOf="@+id/petner_Gorev_RecyclerView" />
+                app:layout_constraintBottom_toTopOf="@+id/petner_Logs_RecyclerView"
+                app:layout_constraintStart_toStartOf="@+id/petner_Logs_RecyclerView" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

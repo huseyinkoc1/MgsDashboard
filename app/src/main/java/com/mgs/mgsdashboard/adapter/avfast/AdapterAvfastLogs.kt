@@ -9,8 +9,8 @@ import com.mgs.mgsdashboard.R
 import com.mgs.mgsdashboard.model.avfast.Avfast
 import kotlinx.android.synthetic.main.recycler_view_item.view.*
 
-class RecyclerViewAdapterAvfastGorev(private val avFastList: Avfast) :
-    RecyclerView.Adapter<RecyclerViewAdapterAvfastGorev.RowHolder>() {
+class AdapterAvfastLogs(private val avFastList: Avfast) :
+    RecyclerView.Adapter<AdapterAvfastLogs.RowHolder>() {
 
     class RowHolder(view: View) : RecyclerView.ViewHolder(view) {
 

@@ -17,16 +17,19 @@ import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.mgs.mgsdashboard.R
 import com.mgs.mgsdashboard.model.avfast.Avfast
 
-class ViewPagerAdapterAvfast(private val avfast: Avfast) : RecyclerView.Adapter<ViewPagerAdapterAvfast.Pager2ViewHolder>() {
+class AdapterAvfastChart(private val avfast: Avfast) : RecyclerView.Adapter<AdapterAvfastChart.Pager2ViewHolder>() {
 
     inner class Pager2ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+
         val  itemTitle : TextView = itemView.findViewById(R.id.textViewA)
         val  itemDetails : TextView = itemView.findViewById(R.id.textViewB)
         val chart : BarChart = itemView.findViewById(R.id.barChartTaskCompletion)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Pager2ViewHolder {
-        return Pager2ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.avfast_dashboard,parent,false))
+        val inflater = LayoutInflater.from(parent.context)
+        val view = inflater.inflate(R.layout.avfast_dashboard, parent, false)
+        return Pager2ViewHolder(view)
     }
 
     override fun getItemCount(): Int {

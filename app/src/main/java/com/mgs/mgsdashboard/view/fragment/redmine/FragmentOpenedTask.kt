@@ -18,6 +18,7 @@ import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.mgs.mgsdashboard.R
 import com.mgs.mgsdashboard.adapter.redmine.AdapterOpenedTask
 import com.mgs.mgsdashboard.adapter.redmine.AdapterOpenedTaskSecond
+import com.mgs.mgsdashboard.databinding.FragmentOpenedTaskBinding
 import com.mgs.mgsdashboard.model.redmine.TaskCreated
 import com.mgs.mgsdashboard.utils.RoundedBarChart
 import com.mgs.mgsdashboard.viewmodel.RedmineViewModel
@@ -27,14 +28,13 @@ import kotlinx.android.synthetic.main.fragment_opened_task.*
 class FragmentOpenedTask : Fragment() {
 
     private lateinit var redmineViewModel: RedmineViewModel
+    private lateinit var binding: FragmentOpenedTaskBinding
     var listRed: Array<TaskCreated>? = null
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_opened_task, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        binding = FragmentOpenedTaskBinding.inflate(inflater, container, false)
+
+        return binding.root
     }
 
 
@@ -44,13 +44,13 @@ class FragmentOpenedTask : Fragment() {
         redmineViewModel = ViewModelProvider(this).get(RedmineViewModel::class.java)
         redmineViewModel.refreshData()
 
-        taskCompletion_RecyclerView.layoutManager =
+        binding.taskCompletionRecyclerView.layoutManager =
             object : LinearLayoutManager(this.requireContext()) {
                 override fun canScrollVertically(): Boolean {
                     return false
                 }
             }
-        taskCompletion_RecyclerView2.layoutManager =
+        binding.taskCompletionRecyclerView2.layoutManager =
             object : LinearLayoutManager(this.requireContext()) {
                 override fun canScrollVertically(): Boolean {
                     return true
@@ -92,18 +92,15 @@ class FragmentOpenedTask : Fragment() {
 
                     listRed = sortBubble(listRed!!)
 
-                    for (x in 0..it.task_created.size - 1) {
-                        println(listRed!![x].image_url + "  " + listRed!![x].name + "  " + listRed!![x].points)
-                    }
 
                     val adapter = AdapterOpenedTask(listRed!!)
-                    taskCompletion_RecyclerView.adapter = adapter
+                    binding.taskCompletionRecyclerView.adapter = adapter
 
                     val adapterSecond = AdapterOpenedTaskSecond(listRed!!)
-                    taskCompletion_RecyclerView2.adapter = adapterSecond
+                    binding.taskCompletionRecyclerView2.adapter = adapterSecond
 
                     configureChart()
-                    progressBarRedmine2.visibility = View.GONE
+                    binding.progressBarRedmine2.visibility = View.GONE
                 }
             })
     }
@@ -134,51 +131,51 @@ class FragmentOpenedTask : Fragment() {
         barDataSet.isHighlightEnabled = false
 
 
-        barChartTaskCompletion.axisRight.isEnabled = false
-        barChartTaskCompletion.legend.isEnabled = true
-        barChartTaskCompletion.legend.horizontalAlignment = Legend.LegendHorizontalAlignment.CENTER
-        barChartTaskCompletion.legend.textSize = 10f
-        barChartTaskCompletion.legend.textColor = Color.parseColor("#444444")
-        barChartTaskCompletion.legend.formToTextSpace = 15f
-        barChartTaskCompletion.legend.typeface = Typeface.MONOSPACE
-        barChartTaskCompletion.description.isEnabled = false
-        barChartTaskCompletion.extraBottomOffset = 15f
+        binding.barChartTaskCompletion.axisRight.isEnabled = false
+        binding.barChartTaskCompletion.legend.isEnabled = true
+        binding.barChartTaskCompletion.legend.horizontalAlignment = Legend.LegendHorizontalAlignment.CENTER
+        binding.barChartTaskCompletion.legend.textSize = 10f
+        binding.barChartTaskCompletion.legend.textColor = Color.parseColor("#444444")
+        binding.barChartTaskCompletion.legend.formToTextSpace = 15f
+        binding.barChartTaskCompletion.legend.typeface = Typeface.MONOSPACE
+        binding.barChartTaskCompletion.description.isEnabled = false
+        binding.barChartTaskCompletion.extraBottomOffset = 15f
 
 
 
 
-        barChartTaskCompletion.xAxis.textColor = Color.parseColor("#444444")
-        barChartTaskCompletion.xAxis.textSize = 10f
-        barChartTaskCompletion.xAxis.axisLineColor = Color.parseColor("#3D7CC9")
-        barChartTaskCompletion.xAxis.granularity = 1f
-        barChartTaskCompletion.xAxis.axisLineWidth = 1f
-        barChartTaskCompletion.xAxis.typeface = Typeface.MONOSPACE
-        barChartTaskCompletion.xAxis.setCenterAxisLabels(false)
+        binding.barChartTaskCompletion.xAxis.textColor = Color.parseColor("#444444")
+        binding.barChartTaskCompletion.xAxis.textSize = 10f
+        binding.barChartTaskCompletion.xAxis.axisLineColor = Color.parseColor("#3D7CC9")
+        binding.barChartTaskCompletion.xAxis.granularity = 1f
+        binding.barChartTaskCompletion.xAxis.axisLineWidth = 1f
+        binding.barChartTaskCompletion.xAxis.typeface = Typeface.MONOSPACE
+        binding.barChartTaskCompletion.xAxis.setCenterAxisLabels(false)
 
 
 
-        barChartTaskCompletion.axisLeft.textColor = Color.parseColor("#444444")
-        barChartTaskCompletion.axisLeft.textSize = 8f
-        barChartTaskCompletion.axisLeft.axisLineColor = Color.parseColor("#3D7CC9")
-        barChartTaskCompletion.axisLeft.axisLineWidth = 1f
-        barChartTaskCompletion.axisLeft.setStartAtZero(true)
-        barChartTaskCompletion.axisLeft.setCenterAxisLabels(false)
-        barChartTaskCompletion.axisLeft.typeface = Typeface.MONOSPACE
+        binding.barChartTaskCompletion.axisLeft.textColor = Color.parseColor("#444444")
+        binding.barChartTaskCompletion.axisLeft.textSize = 8f
+        binding.barChartTaskCompletion.axisLeft.axisLineColor = Color.parseColor("#3D7CC9")
+        binding.barChartTaskCompletion.axisLeft.axisLineWidth = 1f
+        binding.barChartTaskCompletion.axisLeft.setStartAtZero(true)
+        binding.barChartTaskCompletion.axisLeft.setCenterAxisLabels(false)
+        binding.barChartTaskCompletion.axisLeft.typeface = Typeface.MONOSPACE
 
-        barChartTaskCompletion.renderer = RoundedBarChart(
+        binding.barChartTaskCompletion.renderer = RoundedBarChart(
             barChartTaskCompletion,
             barChartTaskCompletion.animator,
             barChartTaskCompletion.viewPortHandler
         )
 
         val barData = BarData(barDataSet)
-        barChartTaskCompletion.animateXY(2000, 1800)
-        barChartTaskCompletion.setFitBars(true)
-        barChartTaskCompletion.data = barData
+        binding.barChartTaskCompletion.animateXY(2000, 1800)
+        binding.barChartTaskCompletion.setFitBars(true)
+        binding.barChartTaskCompletion.data = barData
         barData.barWidth = 0.5f
-        barChartTaskCompletion.xAxis.valueFormatter = IndexAxisValueFormatter(xValueModel)
-        barChartTaskCompletion.xAxis.position = XAxis.XAxisPosition.BOTTOM
-        barChartTaskCompletion.invalidate()
+        binding.barChartTaskCompletion.xAxis.valueFormatter = IndexAxisValueFormatter(xValueModel)
+        binding.barChartTaskCompletion.xAxis.position = XAxis.XAxisPosition.BOTTOM
+        binding.barChartTaskCompletion.invalidate()
 
     }
 

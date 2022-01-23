@@ -6,20 +6,24 @@ import android.view.MenuItem
 import androidx.viewpager2.widget.ViewPager2
 import com.mgs.mgsdashboard.R
 import com.mgs.mgsdashboard.adapter.AdapterFragmentRedminer
+import com.mgs.mgsdashboard.databinding.ActivityRedMinerBinding
 import kotlinx.android.synthetic.main.activity_red_miner.*
 
 class RedMinerActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityRedMinerBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_red_miner)
+        binding = ActivityRedMinerBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         var pager = findViewById<ViewPager2>(R.id.viewPagerRedMiner)
-        pager.adapter = AdapterFragmentRedminer(supportFragmentManager,lifecycle)
-        circleRedMiner.setViewPager(pager)
+        binding.viewPagerRedMiner.adapter = AdapterFragmentRedminer(supportFragmentManager,lifecycle)
+        binding.circleRedMiner.setViewPager(pager)
 
 
-        toolbarRedMiner.title = ""
+        binding.toolbarRedMiner.title = ""
         setSupportActionBar(toolbarRedMiner)
 
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true);

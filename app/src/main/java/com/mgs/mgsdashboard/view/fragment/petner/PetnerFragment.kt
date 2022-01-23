@@ -10,25 +10,25 @@ import androidx.lifecycle.ViewModelProvider
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
-import com.mgs.mgsdashboard.R
-import com.mgs.mgsdashboard.adapter.petner.RecyclerViewAdapterPetnerGorev
-import com.mgs.mgsdashboard.adapter.petner.RecyclerViewAdapterPetnerKayit
-import com.mgs.mgsdashboard.adapter.petner.ViewPagerAdapterPetner
+import com.mgs.mgsdashboard.adapter.petner.AdapterPetnerLogs
+import com.mgs.mgsdashboard.adapter.petner.AdapterPetnerRegister
+import com.mgs.mgsdashboard.adapter.petner.AdapterPetnerChart
+import com.mgs.mgsdashboard.databinding.FragmentPetnerBinding
 import com.mgs.mgsdashboard.viewmodel.PetnerViewModel
 import kotlinx.android.synthetic.main.fragment_petner.*
-import kotlinx.android.synthetic.main.fragment_petner.circle
-import kotlinx.android.synthetic.main.fragment_petner.edtTextKisi
-import kotlinx.android.synthetic.main.fragment_petner.edtTextKullanici
 import kotlinx.android.synthetic.main.fragment_petner.view_chart
 
 
 class PetnerFragment : Fragment() {
 
     private lateinit var petnerViewModel: PetnerViewModel
+    private lateinit var binding: FragmentPetnerBinding
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_petner, container, false)
+        binding = FragmentPetnerBinding.inflate(inflater, container, false)
+
+        return binding.root
     }
 
 
@@ -39,13 +39,13 @@ class PetnerFragment : Fragment() {
         petnerViewModel.refreshData()
 
 
-        petner_Kayit_RecyclerView.layoutManager =
+        binding.petnerRegisterRecyclerView.layoutManager =
             object : LinearLayoutManager(this.requireContext()) {
                 override fun canScrollVertically(): Boolean {
                     return false
                 }
             }
-        petner_Gorev_RecyclerView.layoutManager =
+        binding.petnerLogsRecyclerView.layoutManager =
             object : LinearLayoutManager(this.requireContext()) {
                 override fun canScrollVertically(): Boolean {
                     return false
@@ -61,22 +61,22 @@ class PetnerFragment : Fragment() {
             viewLifecycleOwner, androidx.lifecycle.Observer {
                 it?.let {
 
-                    view_chart.adapter = ViewPagerAdapterPetner(it!!)
-                    view_chart.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+                    binding.viewChart.adapter = AdapterPetnerChart(it!!)
+                    binding.viewChart.orientation = ViewPager2.ORIENTATION_HORIZONTAL
 
-                    circle.setViewPager(view_chart)
-                    progressBar3.visibility = View.GONE
+                    binding.circle.setViewPager(view_chart)
+                    binding.progressBar3.visibility = View.GONE
 
-                    edtTextKullanici.text = it.users_count.toString() ?: ""
-                    edtTextKisi.text = it.pets_count.toString() ?: ""
-                    edtTextKisi2.text = it.adoption_pets_count.toString() ?: ""
+                    binding.edtTextUsersCount.text = it.users_count.toString() ?: ""
+                    binding.edtTextPetsCount.text = it.pets_count.toString() ?: ""
+                    binding.edtTextAdoptionPetsCount.text = it.adoption_pets_count.toString() ?: ""
 
-                    textViewKayit.text = "Kayıt Olanlar (${it.register_users.size})" ?: ""
-                    textViewOlay.text = "Son Olaylar (${it.logs.size})" ?: ""
+                    binding.textViewRegister.text = "Kayıt Olanlar (${it.register_users.size})" ?: ""
+                    binding.textViewLogs.text = "Son Olaylar (${it.logs.size})" ?: ""
 
 
-                    petner_Kayit_RecyclerView.adapter = RecyclerViewAdapterPetnerKayit(it!!)
-                    petner_Gorev_RecyclerView.adapter = RecyclerViewAdapterPetnerGorev(it!!)
+                    binding.petnerRegisterRecyclerView.adapter = AdapterPetnerRegister(it!!)
+                    binding.petnerLogsRecyclerView.adapter = AdapterPetnerLogs(it!!)
                 }
             })
     }

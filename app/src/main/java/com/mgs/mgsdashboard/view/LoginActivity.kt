@@ -7,21 +7,25 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.mgs.mgsdashboard.R
+import com.mgs.mgsdashboard.databinding.ActivityLoginBinding
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityLoginBinding
     private lateinit var auth: FirebaseAuth
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         auth = Firebase.auth
 
@@ -38,8 +42,8 @@ class LoginActivity : AppCompatActivity() {
 
         buttonLogin.setOnClickListener{
 
-            val userEmail = editTextEmail.text.toString()
-            val password = editTextPassword.text.toString()
+            val userEmail = binding.editTextEmail.text.toString()
+            val password = binding.editTextPassword.text.toString()
 
             if (userEmail.isNotEmpty() && password.isNotEmpty()) {
                 auth.signInWithEmailAndPassword(userEmail,password).addOnCompleteListener { task ->

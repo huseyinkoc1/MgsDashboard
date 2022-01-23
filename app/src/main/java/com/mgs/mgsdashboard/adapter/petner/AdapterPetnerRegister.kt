@@ -9,7 +9,7 @@ import com.mgs.mgsdashboard.R
 import com.mgs.mgsdashboard.model.petner.Petner
 import kotlinx.android.synthetic.main.recycler_view_item.view.*
 
-class RecyclerViewAdapterPetnerKayit(private val petnerList: Petner) : RecyclerView.Adapter<RecyclerViewAdapterPetnerKayit.RowHolder>() {
+class AdapterPetnerRegister(private val petnerList: Petner) : RecyclerView.Adapter<AdapterPetnerRegister.RowHolder>() {
 
     class RowHolder(view: View) : RecyclerView.ViewHolder(view) {
 

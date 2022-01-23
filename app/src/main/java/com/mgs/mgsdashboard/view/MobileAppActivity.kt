@@ -11,37 +11,37 @@ import android.widget.LinearLayout
 import android.graphics.drawable.GradientDrawable
 import android.view.View
 import com.mgs.mgsdashboard.R
+import com.mgs.mgsdashboard.databinding.ActivityMobileAppBinding
 import kotlinx.android.synthetic.main.activity_mobile_app.*
 import kotlinx.android.synthetic.main.activity_red_miner.toolbarRedMiner
 
 
 class MobileAppActivity : AppCompatActivity() {
 
-
+    private lateinit var binding: ActivityMobileAppBinding
     var tabText = arrayOf("AvFast","Petner")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_mobile_app)
+        binding = ActivityMobileAppBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        toolbarMobileApp.title = ""
+        binding.toolbarMobileApp.title = ""
         setSupportActionBar(toolbarMobileApp)
 
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true);
 
-        var pager = findViewById<ViewPager2>(R.id.viewPagerMain)
-        var tabLayout  = findViewById<TabLayout>(R.id.tabLayout)
-        pager.adapter = AdapterFragmentApp(supportFragmentManager, lifecycle)
-        TabLayoutMediator(tabLayout,pager){
+        binding.viewPagerMain.adapter = AdapterFragmentApp(supportFragmentManager, lifecycle)
+        TabLayoutMediator(binding.tabLayout,binding.viewPagerMain){
             tab,position ->
             tab.text = tabText[position]
         }.attach()
 
-        pager.setUserInputEnabled(false)
+        binding.viewPagerMain.setUserInputEnabled(false)
 
 
         // TabLayout Divider
-        val root: View = tabLayout.getChildAt(0)
+        val root: View = binding.tabLayout.getChildAt(0)
         if (root is LinearLayout) {
             (root as LinearLayout).showDividers = LinearLayout.SHOW_DIVIDER_MIDDLE
             val drawable = GradientDrawable()
@@ -53,7 +53,7 @@ class MobileAppActivity : AppCompatActivity() {
 
 
         //TabLayout Splash
-        pager?.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+        binding.viewPagerMain?.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
 

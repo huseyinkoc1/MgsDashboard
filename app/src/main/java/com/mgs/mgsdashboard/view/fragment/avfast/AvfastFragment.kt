@@ -10,9 +10,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.mgs.mgsdashboard.R
-import com.mgs.mgsdashboard.adapter.avfast.RecyclerViewAdapterAvfastGorev
-import com.mgs.mgsdashboard.adapter.avfast.RecyclerViewAdapterAvfastKayit
-import com.mgs.mgsdashboard.adapter.avfast.ViewPagerAdapterAvfast
+import com.mgs.mgsdashboard.adapter.avfast.AdapterAvfastLogs
+import com.mgs.mgsdashboard.adapter.avfast.AdapterAvfastRegister
+import com.mgs.mgsdashboard.adapter.avfast.AdapterAvfastChart
+import com.mgs.mgsdashboard.databinding.FragmentAvfastBinding
 import com.mgs.mgsdashboard.viewmodel.AvfastViewModel
 import kotlinx.android.synthetic.main.fragment_avfast.*
 
@@ -20,10 +21,13 @@ import kotlinx.android.synthetic.main.fragment_avfast.*
 class AvfastFragment : Fragment() {
 
 
+    private lateinit var binding: FragmentAvfastBinding
     private lateinit var avfastViewModel: AvfastViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_avfast, container, false)
+        binding = FragmentAvfastBinding.inflate(inflater, container, false)
+
+        return binding.root
     }
 
 
@@ -34,8 +38,8 @@ class AvfastFragment : Fragment() {
         avfastViewModel.refreshData()
 
 
-        avfast_Kayit_RecyclerView.layoutManager = object : LinearLayoutManager(this.requireContext()) { override fun canScrollVertically(): Boolean { return false } }
-        avfast_Gorev_RecyclerView.layoutManager = object : LinearLayoutManager(this.requireContext()) { override fun canScrollVertically(): Boolean { return false } }
+        binding.avfastRegisterRecyclerView.layoutManager = object : LinearLayoutManager(this.requireContext()) { override fun canScrollVertically(): Boolean { return false } }
+        binding.avfastLogsRecyclerView.layoutManager = object : LinearLayoutManager(this.requireContext()) { override fun canScrollVertically(): Boolean { return false } }
 
         observeAvfastData()
 
@@ -49,20 +53,20 @@ class AvfastFragment : Fragment() {
             viewLifecycleOwner, androidx.lifecycle.Observer {
                 it?.let {
 
-                    view_chart.adapter = ViewPagerAdapterAvfast(it!!)
-                    view_chart.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+                    binding.viewChart.adapter = AdapterAvfastChart(it!!)
+                    binding.viewChart.orientation = ViewPager2.ORIENTATION_HORIZONTAL
 
-                    circle.setViewPager(view_chart)
-                    progressBar2.visibility = View.GONE
+                    binding.circle.setViewPager(view_chart)
+                    binding.progressBar2.visibility = View.GONE
 
-                    edtTextKullanici.text = it.users_count.toString() ?: ""
-                    edtTextKisi.text = it?.online_users_count.toString() ?: ""
+                    binding.edtTextUser.text = it.users_count.toString() ?: ""
+                    binding.edtTextOnlineUser.text = it?.online_users_count.toString() ?: ""
 
-                    textViewKayitSayi.text = "Kayıt Olanlar (${it.register_users.size})" ?: ""
-                    textViewOlaySayisi.text = "Son Olaylar (${it.logs.size})" ?: ""
+                    binding.textViewRegister.text = "Kayıt Olanlar (${it.register_users.size})" ?: ""
+                    binding.textViewLogs.text = "Son Olaylar (${it.logs.size})" ?: ""
 
-                    avfast_Kayit_RecyclerView.adapter = RecyclerViewAdapterAvfastKayit(it!!)
-                    avfast_Gorev_RecyclerView.adapter = RecyclerViewAdapterAvfastGorev(it!!)
+                    binding.avfastRegisterRecyclerView.adapter = AdapterAvfastRegister(it!!)
+                    binding.avfastLogsRecyclerView.adapter = AdapterAvfastLogs(it!!)
 
                 }
             })

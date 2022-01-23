@@ -17,7 +17,7 @@ import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.mgs.mgsdashboard.R
 import com.mgs.mgsdashboard.model.petner.Petner
 
-class ViewPagerAdapterPetner(private val petner: Petner): RecyclerView.Adapter<ViewPagerAdapterPetner.Pager2ViewHolder>()  {
+class AdapterPetnerChart(private val petner: Petner): RecyclerView.Adapter<AdapterPetnerChart.Pager2ViewHolder>()  {
 
     inner class Pager2ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val  itemTitle : TextView = itemView.findViewById(R.id.textViewN)
